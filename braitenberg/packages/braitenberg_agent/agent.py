@@ -21,13 +21,11 @@ from aido_schemas import (
 from solution.connections import get_motor_left_matrix, get_motor_right_matrix
 from solution.preprocessing import preprocess
 
-
 # TODO edit this Config class ! Play with different gain and const values
 @dataclass
 class BraitenbergAgentConfig:
-    gain: float = 0.9
-    const: float = 0.0
-
+    gain: float = 0.4
+    const: float = 0.3
 
 class BraitenbergAgent:
     config = BraitenbergAgentConfig()
@@ -113,7 +111,6 @@ class BraitenbergAgent:
 
     def finish(self, context: Context):
         context.info("finish()")
-
 
 def rescale(a: float, L: float, U: float):
     if np.allclose(L, U):
